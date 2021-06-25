@@ -8,7 +8,7 @@ interface UserDao {
     fun selectOneByNameAndPassword(userID:Int,password:String):User
 
     @Query("select * from User")
-    fun selectAll():List<User>
+    fun selectAll():MutableList<User>
 
     @Insert
     fun insert(user:User):Long

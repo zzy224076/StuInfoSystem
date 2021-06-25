@@ -17,20 +17,15 @@ class AdminActivity : AppCompatActivity() {
         var recyclerView:RecyclerView? = null
         recyclerView = findViewById(R.id.recyclerView)
         recyclerView?.layoutManager = layoutManager
-        val userList:List<User> =userDao.selectAll()
-
+        var userList:MutableList<User> =userDao.selectAll()
         val adapter = UserAdapter(userList)
         recyclerView.adapter = adapter
-        adapter.setOnKotlinItemClickListener(object :UserAdapter.IKotlinItemClickListener{
-            override fun onItemClickListener(position: Int) {
-                adapter.getItemId(position)
-
-            }
-
-        }
 
 
-        )
+
+
+
+
 
 //        var textView:TextView?=null
 //        textView=findViewById(R.id.textView)

@@ -26,8 +26,8 @@ class MainActivity : AppCompatActivity() {
         loginButton.setOnClickListener{
             thread {
                 Looper.prepare();
-                userDao.update(user1)
-                userDao.update(user2)
+                //userDao.insert(user1)
+                //userDao.insert(user2)
                 var id:String = idText.getText().toString()
                 var passwor:String = password.getText().toString()
                 if(id==""||passwor==""){
