@@ -10,9 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.StuInfoSystem">
         <activity
+            android:name=".StuActivity"
+            android:label="@string/title_activity_stu"></activity>
+        <activity
             android:name=".AdminActivity"
             android:label="@string/title_activity_admin"
-            android:theme="@style/Theme.StuInfoSystem.NoActionBar"></activity>
+            android:theme="@style/Theme.StuInfoSystem.NoActionBar" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
