@@ -7,6 +7,7 @@ import android.os.Looper
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
+import com.example.stuinfosystem.entity.Student
 import com.example.stuinfosystem.entity.User
 import kotlin.concurrent.thread
 
@@ -15,9 +16,11 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         val userDao =AppDataBase.getDatabase(this).userDao()
+        val stuDao = AppDataBase.getDatabase(this).stuDao()
         var loginButton:Button?=null
         val user1= User(1002,"123456","张三",0)
         val user2= User(1001,"123456","admin",0)
+        val student = Student(1003,"张志远","男","15039944169","ZB计科201")
         var idText:TextView? =null
         idText = findViewById(R.id.idText)
         var password:TextView?=null
@@ -28,6 +31,7 @@ class MainActivity : AppCompatActivity() {
                 Looper.prepare();
                 //userDao.insert(user1)
                 //userDao.insert(user2)
+                //stuDao.insert(student)
                 var id:String = idText.getText().toString()
                 var passwor:String = password.getText().toString()
                 if(id==""||passwor==""){
