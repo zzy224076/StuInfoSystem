@@ -7,7 +7,7 @@ import android.os.Looper
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
-import org.w3c.dom.Text
+import com.example.stuinfosystem.entity.User
 import kotlin.concurrent.thread
 
 class MainActivity : AppCompatActivity() {
@@ -16,7 +16,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         val userDao =AppDataBase.getDatabase(this).userDao()
         var loginButton:Button?=null
-        val user1=User(1002,"123456","张三",0)
+        val user1= User(1002,"123456","张三",0)
         val user2= User(1001,"123456","admin",0)
         var idText:TextView? =null
         idText = findViewById(R.id.idText)
@@ -33,7 +33,7 @@ class MainActivity : AppCompatActivity() {
                 if(id==""||passwor==""){
                     Toast.makeText(this,"请填写完整！！！",Toast.LENGTH_SHORT).show()
                 }else{
-                    var user:User = userDao.selectOneByNameAndPassword(id.toInt(),passwor)
+                    var user: User = userDao.selectOneByNameAndPassword(id.toInt(),passwor)
                     if (user==null){
                         Toast.makeText(this,"用户名或密码错误",Toast.LENGTH_SHORT).show()
                     }else{

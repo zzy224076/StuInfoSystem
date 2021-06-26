@@ -7,6 +7,8 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.stuinfosystem.Dao.UserDao
+import com.example.stuinfosystem.entity.User
 
 class UserAdapter(private val userList:MutableList<User>):
     RecyclerView.Adapter<UserAdapter.ViewHolder>(){
@@ -31,7 +33,7 @@ class UserAdapter(private val userList:MutableList<User>):
 
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val userDao:UserDao=AppDataBase.getDatabase(holder.itemView.context).userDao()
+        val userDao: UserDao =AppDataBase.getDatabase(holder.itemView.context).userDao()
         val user = userList[position]
         holder.idTextView.text = user.userID.toString()
         holder.nameTextView.text = user.name

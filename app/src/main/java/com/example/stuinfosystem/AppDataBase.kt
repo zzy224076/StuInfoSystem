@@ -6,10 +6,12 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.migration.Migration
 import androidx.sqlite.db.SupportSQLiteDatabase
+import com.example.stuinfosystem.Dao.UserDao
+import com.example.stuinfosystem.entity.User
 
 @Database(entities = [User::class],version =2)
 abstract class AppDataBase:RoomDatabase() {
-    abstract fun userDao():UserDao
+    abstract fun userDao(): UserDao
 
 
     companion object{

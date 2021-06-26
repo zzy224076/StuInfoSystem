@@ -1,4 +1,4 @@
-package com.example.stuinfosystem
+package com.example.stuinfosystem.Dao
 
 import androidx.room.*
 

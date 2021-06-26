@@ -1,4 +1,4 @@
-package com.example.stuinfosystem
+package com.example.stuinfosystem.entity
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
