@@ -5,6 +5,7 @@
 
     <TextView
         android:id="@+id/id_textView"
+        android:gravity="center_vertical|center"
         android:layout_width="95dp"
         android:layout_height="match_parent"
         android:text="TextView"
@@ -12,6 +13,7 @@
 
     <TextView
         android:id="@+id/name_textView"
+        android:gravity="center_vertical|center"
         android:layout_width="100dp"
         android:layout_height="match_parent"
         android:text="TextView"
@@ -19,6 +21,7 @@
 
     <TextView
         android:id="@+id/type_textView"
+        android:gravity="center_vertical|center"
         android:layout_width="111dp"
         android:layout_height="match_parent"
         android:layout_weight="1"
@@ -26,18 +29,12 @@
 
     <Button
         android:id="@+id/delete_btn"
+        android:gravity="center_vertical|center"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_weight="1"
         android:text="删除"
         android:textSize="12sp" />
 
-    <Button
-        android:id="@+id/edit_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="编辑"
-        android:textSize="12sp" />
 </LinearLayout>
 

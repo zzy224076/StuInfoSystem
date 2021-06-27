@@ -19,7 +19,7 @@ class UserAdapter(private val userList:MutableList<User>):
             val nameTextView:TextView=view.findViewById(R.id.name_textView)
             val typeTextView:TextView = view.findViewById(R.id.type_textView)
             val deleteBtn:Button = view.findViewById(R.id.delete_btn)
-            val editBtn:Button = view.findViewById(R.id.edit_btn)
+
 
         }
 
