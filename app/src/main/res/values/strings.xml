@@ -10,7 +10,8 @@
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="title_activity_stu">MainActivity</string>
-    <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="title_home">查看用户</string>
+    <string name="title_dashboard">添加用户</string>
+    <string name="title_notifications">添加课程</string>
+    <string name="text_size">20sp</string>
 </resources>

@@ -16,7 +16,7 @@ class AdminActivity : AppCompatActivity() {
         val userDao =AppDataBase.getDatabase(this).userDao()
         val layoutManager = LinearLayoutManager(this)
         var recyclerView:RecyclerView? = null
-        recyclerView = findViewById(R.id.recyclerView)
+        recyclerView = findViewById(R.id.recyclerView1)
         recyclerView?.layoutManager = layoutManager
         var userList:MutableList<User> =userDao.selectAll()
         val adapter = UserAdapter(userList)

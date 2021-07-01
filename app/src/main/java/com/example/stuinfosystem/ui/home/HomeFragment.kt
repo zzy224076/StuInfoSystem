@@ -8,8 +8,14 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.example.stuinfosystem.AppDataBase
+import com.example.stuinfosystem.Dao.UserDao
 import com.example.stuinfosystem.R
+import com.example.stuinfosystem.UserAdapter
 import com.example.stuinfosystem.databinding.FragmentHomeBinding
+import com.example.stuinfosystem.entity.User
 
 class HomeFragment : Fragment() {
 
@@ -31,10 +37,15 @@ class HomeFragment : Fragment() {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val textView: TextView = binding.textHome
-        homeViewModel.text.observe(viewLifecycleOwner, Observer {
-            textView.text = it
-        })
+
+        val userDao:UserDao =AppDataBase.getDatabase(requireContext()).userDao()
+        val layoutManager = LinearLayoutManager(requireContext())
+        var recyclerView: RecyclerView? = null
+        recyclerView =binding.recyclerView1
+        recyclerView.layoutManager = layoutManager
+        var userList: MutableList<User> =userDao.selectAll()
+        val adapter = UserAdapter(userList)
+        recyclerView.adapter = adapter
         return root
     }
 

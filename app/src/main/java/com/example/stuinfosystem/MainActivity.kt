@@ -28,10 +28,7 @@ class MainActivity : AppCompatActivity() {
         loginButton=findViewById(R.id.loginButton)
         loginButton.setOnClickListener{
             thread {
-                Looper.prepare();
-                //userDao.insert(user1)
-                //userDao.insert(user2)
-                //stuDao.insert(student)
+                Looper.prepare()
                 var id:String = idText.getText().toString()
                 var passwor:String = password.getText().toString()
                 if(id==""||passwor==""){
@@ -44,15 +41,14 @@ class MainActivity : AppCompatActivity() {
                         Toast.makeText(this,"登录成功",Toast.LENGTH_SHORT).show()
                         // 页面跳转
                         var intent = Intent()
-                        intent.setClass(this,AdminActivity().javaClass)
+                        intent.setClass(this,StuActivity().javaClass)
                         //var userList:List<User> = userDao.selectAll()
 
                         intent.putExtra("userName", user.name)
                         startActivity(intent)
                     }
                 }
-
-                Looper.loop();
+                Looper.loop()
             }
         }
 //        val user1=User(1001,"123456",0)

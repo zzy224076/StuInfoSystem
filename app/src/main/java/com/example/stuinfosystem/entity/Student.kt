@@ -3,7 +3,7 @@ package com.example.stuinfosystem.entity
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import java.lang.ClassCastException
+
 
 @Entity(tableName = "Student")
 data class Student(
