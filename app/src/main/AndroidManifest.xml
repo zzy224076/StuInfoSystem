@@ -11,7 +11,8 @@
         android:theme="@style/Theme.StuInfoSystem">
         <activity
             android:name=".StuActivity"
-            android:label="@string/title_activity_stu"></activity>
+            android:label="@string/title_activity_stu"
+            android:windowSoftInputMode="adjustPan"></activity>
         <activity
             android:name=".AdminActivity"
             android:label="@string/title_activity_admin"

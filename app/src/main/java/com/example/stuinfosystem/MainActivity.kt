@@ -29,6 +29,7 @@ class MainActivity : AppCompatActivity() {
         loginButton.setOnClickListener{
             thread {
                 Looper.prepare()
+                //userDao.insert(user2)
                 var id:String = idText.getText().toString()
                 var passwor:String = password.getText().toString()
                 if(id==""||passwor==""){
