@@ -13,7 +13,7 @@ import com.example.stuinfosystem.entity.Student
 import com.example.stuinfosystem.entity.Teacher
 import com.example.stuinfosystem.entity.User
 
-@Database(entities = [User::class,Student::class,Teacher::class],version =4)
+@Database(entities = [User::class,Student::class,Teacher::class],version =5)
 abstract class AppDataBase:RoomDatabase() {
     abstract fun userDao(): UserDao
     abstract fun stuDao(): StuDao
@@ -38,6 +38,13 @@ abstract class AppDataBase:RoomDatabase() {
 
                 }
         }
+        val MIGRATION_4_5 = object : Migration(4, 5) {
+            override fun migrate(database: SupportSQLiteDatabase) {
+                database.execSQL("drop table teacher")
+                database.execSQL("Create table IF NOT EXISTS 'Teacher'('teacherID' INTEGER NOT null PRIMARY KEY ,'t_name' text,'t_sex' text,'t_tel' text)")
+
+            }
+        }
         @Synchronized
         fun getDatabase(context: Context):AppDataBase{
             instance?.let {
@@ -45,7 +52,8 @@ abstract class AppDataBase:RoomDatabase() {
             }
             return Room.databaseBuilder(context.applicationContext,
                 AppDataBase::class.java,"app_database")
-                .allowMainThreadQueries().addMigrations(MIGRATION_1_2, MIGRATION_2_3,MIGRATION_3_4).build().apply { instance = this }
+                .allowMainThreadQueries().addMigrations(MIGRATION_1_2, MIGRATION_2_3,MIGRATION_3_4,
+                    MIGRATION_4_5).build().apply { instance = this }
         }
     }
 

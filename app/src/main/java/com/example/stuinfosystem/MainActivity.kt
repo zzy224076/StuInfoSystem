@@ -20,7 +20,8 @@ class MainActivity : AppCompatActivity() {
         var loginButton:Button?=null
         val user1= User(1002,"123456","张三",0)
         val user2= User(1001,"123456","admin",0)
-        val student = Student(1003,"张志远","男","15039944169","ZB计科201")
+        val student = Student(1002,"androidx.appcompat.widget.AppCompatEditText{422292a VFED..CL. ........ 616,314-1316,454 #7f0801b2 app:id/name_text aid=1073741825}","男","15039944169","ZB计科201")
+        val user3 = User(1002,"123456","androidx.appcompat.widget.AppCompatEditText{422292a VFED..CL. ........ 616,314-1316,454 #7f0801b2 app:id/name_text aid=1073741825}",1)
         var idText:TextView? =null
         idText = findViewById(R.id.idText)
         var password:TextView?=null
@@ -29,7 +30,8 @@ class MainActivity : AppCompatActivity() {
         loginButton.setOnClickListener{
             thread {
                 Looper.prepare()
-                //userDao.insert(user2)
+                //stuDao.delete(student)
+                //userDao.deleteOne(user3)
                 var id:String = idText.getText().toString()
                 var passwor:String = password.getText().toString()
                 if(id==""||passwor==""){

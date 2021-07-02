@@ -1,6 +1,7 @@
 package com.example.stuinfosystem.Dao
 
 import androidx.room.Dao
+import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.Query
 import com.example.stuinfosystem.entity.Student
@@ -12,5 +13,7 @@ interface StuDao {
     fun insert(student:Student)
     @Query("select * from student")
     fun queryAll():MutableList<Student>
+    @Delete
+    fun delete(student: Student)
 
 }

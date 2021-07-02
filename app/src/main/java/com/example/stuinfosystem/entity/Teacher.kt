@@ -13,7 +13,6 @@ data class Teacher(
     @ColumnInfo(name = "t_sex")
     var teaSex: String?,
     @ColumnInfo(name = "t_tel")
-    var teaTel:String?,
-    @ColumnInfo(name = "t_class")
-    var teaClass:String?
+    var teaTel:String?
+
 )

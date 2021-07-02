@@ -8,7 +8,7 @@ interface UserDao {
     @Query("select * from User where userID =:userID and password = :password ")
     fun selectOneByNameAndPassword(userID:Int,password:String): User
 
-    @Query("select * from User")
+    @Query("select * from User where u_type not in(0)")
     fun selectAll():MutableList<User>
 
     @Insert
@@ -22,5 +22,6 @@ interface UserDao {
 
     @Delete
     fun deleteOne(user: User)
+
 
 }
