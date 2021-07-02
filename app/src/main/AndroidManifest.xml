@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.stuinfosystem">
+    package="com.example.stuinfosystem" >
 
     <application
         android:allowBackup="true"
@@ -8,16 +8,17 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.StuInfoSystem">
+        android:theme="@style/Theme.StuInfoSystem" >
+
         <activity
             android:name=".StuActivity"
             android:label="@string/title_activity_stu"
-            android:windowSoftInputMode="adjustPan"></activity>
+            android:windowSoftInputMode="adjustPan" />
         <activity
             android:name=".AdminActivity"
             android:label="@string/title_activity_admin"
             android:theme="@style/Theme.StuInfoSystem.NoActionBar" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

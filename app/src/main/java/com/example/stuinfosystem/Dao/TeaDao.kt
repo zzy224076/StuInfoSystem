@@ -10,7 +10,11 @@ import com.example.stuinfosystem.entity.Teacher
 interface TeaDao {
     @Insert
     fun insert(teacher: Teacher)
+
     @Query("select * from teacher")
-    fun queryAll():MutableList<Teacher>
+    fun queryAll(): MutableList<Teacher>
+
+    @Query("select * from teacher where t_name=:tName")
+    fun queryOneByName(tName: String): Teacher
 
 }

@@ -7,6 +7,7 @@ import android.os.Looper
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
+import com.example.stuinfosystem.entity.Course
 import com.example.stuinfosystem.entity.Student
 import com.example.stuinfosystem.entity.User
 import kotlin.concurrent.thread
@@ -18,10 +19,10 @@ class MainActivity : AppCompatActivity() {
         val userDao =AppDataBase.getDatabase(this).userDao()
         val stuDao = AppDataBase.getDatabase(this).stuDao()
         var loginButton:Button?=null
-        val user1= User(1002,"123456","张三",0)
-        val user2= User(1001,"123456","admin",0)
-        val student = Student(1002,"androidx.appcompat.widget.AppCompatEditText{422292a VFED..CL. ........ 616,314-1316,454 #7f0801b2 app:id/name_text aid=1073741825}","男","15039944169","ZB计科201")
-        val user3 = User(1002,"123456","androidx.appcompat.widget.AppCompatEditText{422292a VFED..CL. ........ 616,314-1316,454 #7f0801b2 app:id/name_text aid=1073741825}",1)
+        //val user1= User(1002,"123456","张三",0)
+        //val user2= User(1001,"123456","admin",0)
+        //val student = Student(1002,"androidx.appcompat.widget.AppCompatEditText{422292a VFED..CL. ........ 616,314-1316,454 #7f0801b2 app:id/name_text aid=1073741825}","男","15039944169","ZB计科201")
+        //val user3 = User(1002,"123456","androidx.appcompat.widget.AppCompatEditText{422292a VFED..CL. ........ 616,314-1316,454 #7f0801b2 app:id/name_text aid=1073741825}",1)
         var idText:TextView? =null
         idText = findViewById(R.id.idText)
         var password:TextView?=null

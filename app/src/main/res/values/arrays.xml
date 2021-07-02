@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="data">
+        <item>ZB计科201</item>
+        <item>ZB计科202</item>
+        <item>ZB计科203</item>
+        <item>ZB计科204</item>
+    </string-array>
+</resources>
