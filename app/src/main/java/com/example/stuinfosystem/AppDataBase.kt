@@ -6,21 +6,16 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.migration.Migration
 import androidx.sqlite.db.SupportSQLiteDatabase
-import com.example.stuinfosystem.Dao.CouDao
-import com.example.stuinfosystem.Dao.StuDao
-import com.example.stuinfosystem.Dao.TeaDao
-import com.example.stuinfosystem.Dao.UserDao
-import com.example.stuinfosystem.entity.Course
-import com.example.stuinfosystem.entity.Student
-import com.example.stuinfosystem.entity.Teacher
-import com.example.stuinfosystem.entity.User
+import com.example.stuinfosystem.Dao.*
+import com.example.stuinfosystem.entity.*
 
-@Database(entities = [User::class,Student::class,Teacher::class,Course::class],version =6)
+@Database(entities = [User::class,Student::class,Teacher::class,Course::class,Score::class],version =10)
 abstract class AppDataBase:RoomDatabase() {
     abstract fun userDao(): UserDao
     abstract fun stuDao(): StuDao
     abstract fun teaDao():TeaDao
     abstract fun CouDao(): CouDao
+    abstract fun ScoreDao():ScoreDao
     companion object{
         private var instance:AppDataBase?=null
         val MIGRATION_1_2 = object : Migration(1, 2) {
@@ -53,6 +48,33 @@ abstract class AppDataBase:RoomDatabase() {
 
             }
         }
+        val MIGRATION_6_7 = object : Migration(6, 7) {
+            override fun migrate(database: SupportSQLiteDatabase) {
+                database.execSQL("create table IF NOT EXISTS 'Score'('ID' INTEGER not null primary key AUTOINCREMENT,'stu_id' INTEGER not null,'stu_name' text not null,'tea_id' INTEGER not null,'tea_name' text not null,'course_name' text not null,'s_score' integer not null)")
+
+            }
+        }
+        val MIGRATION_7_8 = object : Migration(7, 8) {
+            override fun migrate(database: SupportSQLiteDatabase) {
+                database.execSQL("create table IF NOT EXISTS 'Score'('ID' INTEGER not null primary key AUTOINCREMENT,'stu_id' INTEGER not null,'stu_name' text not null,'tea_id' INTEGER not null,'tea_name' text not null,'course_name' text not null,'s_score' integer not null)")
+
+            }
+        }
+        val MIGRATION_8_9 = object : Migration(8, 9) {
+            override fun migrate(database: SupportSQLiteDatabase) {
+                database.execSQL("drop table Score")
+                database.execSQL("create table IF NOT EXISTS 'Score'('ID' INTEGER not null primary key AUTOINCREMENT,'stu_id' INTEGER not null,'stu_name' text not null,'tea_id' INTEGER not null,'tea_name' text not null,'course_name' text not null,'s_score' INTEGER not null)")
+
+            }
+        }
+        val MIGRATION_9_10 = object : Migration(9, 10) {
+            override fun migrate(database: SupportSQLiteDatabase) {
+                database.execSQL("drop table Score")
+                database.execSQL("create table IF NOT EXISTS 'Score'('s_id' INTEGER not null primary key AUTOINCREMENT,'stu_id' INTEGER not null,'stu_name' text not null,'tea_id' INTEGER not null,'tea_name' text not null,'course_name' text not null,'s_score' INTEGER not null)")
+
+            }
+        }
+
         @Synchronized
         fun getDatabase(context: Context):AppDataBase{
             instance?.let {
@@ -61,7 +83,8 @@ abstract class AppDataBase:RoomDatabase() {
             return Room.databaseBuilder(context.applicationContext,
                 AppDataBase::class.java,"app_database")
                 .allowMainThreadQueries().addMigrations(MIGRATION_1_2, MIGRATION_2_3,MIGRATION_3_4,
-                    MIGRATION_4_5, MIGRATION_5_6).build().apply { instance = this }
+                    MIGRATION_4_5, MIGRATION_5_6, MIGRATION_6_7, MIGRATION_7_8, MIGRATION_8_9,
+                    MIGRATION_9_10).build().apply { instance = this }
         }
     }
 

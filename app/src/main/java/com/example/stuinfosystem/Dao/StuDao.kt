@@ -21,4 +21,7 @@ interface StuDao {
     @Query("delete from student where studentID = :id")
     fun deleteOneById(id:Int)
 
+    @Query("select * from student where stu_class = :className")
+    fun queryStuByClassname(className:String):MutableList<Student>
+
 }

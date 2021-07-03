@@ -7,6 +7,10 @@ import android.os.Looper
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
+import com.example.stuinfosystem.Dao.CouDao
+import com.example.stuinfosystem.Dao.ScoreDao
+import com.example.stuinfosystem.entity.Course
+import com.example.stuinfosystem.entity.Score
 import com.example.stuinfosystem.entity.User
 import com.google.android.material.navigation.NavigationView
 import kotlin.concurrent.thread
@@ -17,11 +21,15 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         val userDao =AppDataBase.getDatabase(this).userDao()
         val stuDao = AppDataBase.getDatabase(this).stuDao()
+        val scoreDao:ScoreDao = AppDataBase.getDatabase(this).ScoreDao()
+        val couDao:CouDao = AppDataBase.getDatabase(this).CouDao()
         var loginButton:Button?=null
         //val user1= User(1002,"123456","张三",0)
         //val user2= User(1001,"123456","admin",0)
         //val student = Student(1002,"androidx.appcompat.widget.AppCompatEditText{422292a VFED..CL. ........ 616,314-1316,454 #7f0801b2 app:id/name_text aid=1073741825}","男","15039944169","ZB计科201")
         //val user3 = User(1002,"123456","androidx.appcompat.widget.AppCompatEditText{422292a VFED..CL. ........ 616,314-1316,454 #7f0801b2 app:id/name_text aid=1073741825}",1)
+        var score:Score = Score(0,1002,"张志远",1003,"张三","数据结构",60)
+        var course:Course = Course(0,"zz","张三","ZB计科201")
         var idText:TextView? =null
         idText = findViewById(R.id.idText)
         var password:TextView?=null
@@ -30,8 +38,10 @@ class MainActivity : AppCompatActivity() {
         loginButton.setOnClickListener{
             thread {
                 Looper.prepare()
+                //scoreDao.insert(score)
                 //stuDao.delete(student)
                 //userDao.deleteOne(user3)
+                //couDao.insert(course)
                 var id:String = idText.getText().toString()
                 var passwor:String = password.getText().toString()
                 if(id==""||passwor==""){
