@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/tea_navigation"
+    app:startDestination="@id/teaPutinFragment">
+
+    <fragment
+        android:id="@+id/teaPutinFragment"
+        android:name="com.example.stuinfosystem.TeaPutinFragment"
+        android:label="fragment_tea_putin"
+        tools:layout="@layout/fragment_tea_putin" />
+    <fragment
+        android:id="@+id/teaSettingFragment"
+        android:name="com.example.stuinfosystem.TeaSettingFragment"
+        android:label="fragment_tea_setting"
+        tools:layout="@layout/fragment_tea_setting" />
+</navigation>

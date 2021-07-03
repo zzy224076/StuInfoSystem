@@ -17,4 +17,7 @@ interface TeaDao {
     @Query("select * from teacher where t_name=:tName")
     fun queryOneByName(tName: String): Teacher
 
+    @Query("delete from teacher where teacherID=:id")
+    fun deleteOneById(id: Int)
+
 }

@@ -7,6 +7,8 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.stuinfosystem.Dao.StuDao
+import com.example.stuinfosystem.Dao.TeaDao
 import com.example.stuinfosystem.Dao.UserDao
 import com.example.stuinfosystem.entity.User
 
@@ -32,12 +34,21 @@ class UserAdapter(private val userList:MutableList<User>):
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val userDao: UserDao =AppDataBase.getDatabase(holder.itemView.context).userDao()
+        val stuDao:StuDao = AppDataBase.getDatabase(holder.itemView.context).stuDao()
+        val teaDao:TeaDao = AppDataBase.getDatabase(holder.itemView.context).teaDao()
+
         val user = userList[position]
         holder.idTextView.text = user.userID.toString()
         holder.nameTextView.text = user.name
         holder.typeTextView.text = user.type.toString()
         holder.deleteBtn.setOnClickListener{
             userDao.deleteOne(user)
+            if(user.type==1){
+                stuDao.deleteOneById(user.userID)
+            }else{
+                teaDao.deleteOneById(user.userID)
+            }
+
             userList.remove(user)
             notifyItemRemoved(position)
 

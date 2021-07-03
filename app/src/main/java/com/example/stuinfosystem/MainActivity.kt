@@ -7,9 +7,8 @@ import android.os.Looper
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
-import com.example.stuinfosystem.entity.Course
-import com.example.stuinfosystem.entity.Student
 import com.example.stuinfosystem.entity.User
+import com.google.android.material.navigation.NavigationView
 import kotlin.concurrent.thread
 
 class MainActivity : AppCompatActivity() {
@@ -44,12 +43,21 @@ class MainActivity : AppCompatActivity() {
                     }else{
                         Toast.makeText(this,"登录成功",Toast.LENGTH_SHORT).show()
                         // 页面跳转
-                        var intent = Intent()
-                        intent.setClass(this,StuActivity().javaClass)
-                        //var userList:List<User> = userDao.selectAll()
+                        if(user.type==2){
+                            var intent = Intent()
+                            intent.setClass(this,TeaActivity().javaClass)
+                            //var userList:List<User> = userDao.selectAll()
+                            intent.putExtra("userName", user.name)
+                            startActivity(intent)
+                        }else if(user.type==0){
+                            var intent = Intent()
+                            intent.setClass(this,AdminActivity().javaClass)
+                            //var userList:List<User> = userDao.selectAll()
 
-                        intent.putExtra("userName", user.name)
-                        startActivity(intent)
+                            intent.putExtra("userName", user.name)
+                            startActivity(intent)
+                        }
+
                     }
                 }
                 Looper.loop()
