@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/stu_navigation"
+    app:startDestination="@id/stuScoreFragment">
+
+    <fragment
+        android:id="@+id/stuScoreFragment"
+        android:name="com.example.stuinfosystem.StuScoreFragment"
+        android:label="fragment_stu_score"
+        tools:layout="@layout/fragment_stu_score" />
+    <fragment
+        android:id="@+id/teaSettingFragment2"
+        android:name="com.example.stuinfosystem.TeaSettingFragment"
+        android:label="fragment_tea_setting"
+        tools:layout="@layout/fragment_tea_setting" />
+    <fragment
+        android:id="@+id/classmatesFragment"
+        android:name="com.example.stuinfosystem.ClassmatesFragment"
+        android:label="fragment_classmates"
+        tools:layout="@layout/fragment_classmates" />
+</navigation>

@@ -24,4 +24,9 @@ interface StuDao {
     @Query("select * from student where stu_class = :className")
     fun queryStuByClassname(className:String):MutableList<Student>
 
+    @Query("select * from student where s_name = :stuName")
+    fun queryOneByStuName(stuName:String):Student
+    @Query("select * from student where stu_class =:className and s_name not in(:me)")
+    fun queryClassmates(className:String,me:String):MutableList<Student>
+
 }

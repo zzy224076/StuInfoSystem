@@ -6,25 +6,24 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
-import com.example.stuinfosystem.databinding.ActivityTeaBinding
+import com.example.stuinfosystem.databinding.ActivityStuBinding
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
-class TeaActivity : AppCompatActivity() {
-    private lateinit var binding: ActivityTeaBinding
+class StuActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityStuBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        binding = ActivityTeaBinding.inflate(layoutInflater)
+        binding= ActivityStuBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        val navView: BottomNavigationView = binding.navView
+        val stuNavView: BottomNavigationView = binding.stuNavView
         val navController = findNavController(R.id.nav_host_fragment_activity_stu)
         val appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.teaPutinFragment, R.id.teaSettingFragment
+                R.id.stuScoreFragment,R.id.classmatesFragment,R.id.teaSettingFragment2
             )
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
-        navView.setupWithNavController(navController)
+        stuNavView.setupWithNavController(navController)
 
         val name = intent.getStringExtra("userName")
         //Toast.makeText(this, name, Toast.LENGTH_SHORT).show()

@@ -17,9 +17,9 @@ class UserAdapter(private val userList:MutableList<User>):
 
         override fun getItemCount()=userList.size
         inner class ViewHolder(view:View):RecyclerView.ViewHolder(view){
-            val idTextView:TextView = view.findViewById(R.id.id_textView)
-            val nameTextView:TextView=view.findViewById(R.id.name_textView)
-            val typeTextView:TextView = view.findViewById(R.id.type_textView)
+            val idTextView:TextView = view.findViewById(R.id.name_textView)
+            val nameTextView:TextView=view.findViewById(R.id.sex_textView)
+            val typeTextView:TextView = view.findViewById(R.id.tel_textView)
             val deleteBtn:Button = view.findViewById(R.id.delete_btn)
 
 

@@ -66,6 +66,14 @@ class MainActivity : AppCompatActivity() {
 
                             intent.putExtra("userName", user.name)
                             startActivity(intent)
+                        }else if (user.type==1){
+                            var intent = Intent()
+                            intent.setClass(this,StuActivity().javaClass)
+                            //var userList:List<User> = userDao.selectAll()
+
+                            intent.putExtra("userName", user.name)
+                            intent.putExtra("userId",user.userID)
+                            startActivity(intent)
                         }
 
                     }

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/stuScoreFragment"
+        android:icon="@drawable/ic_home_black_24dp"
+        android:title="查看成绩" />
+    <item
+        android:id="@+id/classmatesFragment"
+        android:icon="@drawable/ic_dashboard_black_24dp"
+        android:title="同班同学" />
+    <item
+        android:id="@+id/teaSettingFragment2"
+        android:icon="@drawable/ic_baseline_settings_24"
+        android:title="个人中心" />
+</menu>

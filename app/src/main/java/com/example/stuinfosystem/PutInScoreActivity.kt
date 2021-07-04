@@ -1,5 +1,6 @@
 package com.example.stuinfosystem
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -49,7 +50,11 @@ class PutInScoreActivity : AppCompatActivity() {
                     var score:Score = Score(0,stuId.toInt(),stuName,teacher.teacherID,teacher.teaName.toString(),courseName,scoreText.toInt())
                     scoreDao.insert(score)
                     Toast.makeText(this, "录入成功！", Toast.LENGTH_SHORT).show()
+
                 }
+                val intent= Intent(this,TeaActivity::class.java)
+                intent.putExtra("userName",teaName)
+                startActivity(intent)
             } else if (scoreText == "") {
                 Toast.makeText(this, "请输入成绩！", Toast.LENGTH_SHORT).show()
             }

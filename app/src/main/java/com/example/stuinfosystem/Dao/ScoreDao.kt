@@ -22,4 +22,7 @@ interface ScoreDao {
 
     @Query("update score set s_score=:score where stu_id=:stuId and course_name =:courseName ")
     fun updateScoreByStuIdAndCourseName(score:Int,stuId:Int,courseName: String)
+
+    @Query("select * from score where stu_name=:stuName")
+    fun queryByStuId(stuName: String):MutableList<Score>
 }
