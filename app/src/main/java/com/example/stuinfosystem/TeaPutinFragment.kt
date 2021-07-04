@@ -88,10 +88,13 @@ class TeaPutinFragment : Fragment(), AdapterView.OnItemSelectedListener {
             var recyclerView: RecyclerView? = null
             val courseSpinner:Spinner = binding.courseSpinner
             val courseName :String= courseSpinner.selectedItem.toString()
+            var name: String? = activity?.intent?.getStringExtra("userName")
+            val scoreTextView: TextView? = activity?.findViewById<TextView>(R.id.stu_score)
+            val  score:String = scoreTextView?.getText().toString()
             recyclerView = binding.recyclerView1
             recyclerView.layoutManager = layoutManager
             var stuList: MutableList<Student> = stuDao.queryStuByClassname(className)
-            val adapter = StuScoreAdapter(stuList,courseName)
+            val adapter = StuScoreAdapter(stuList,courseName, name.toString())
             recyclerView.adapter = adapter
 
         }

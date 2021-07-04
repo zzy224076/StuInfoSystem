@@ -9,14 +9,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.StuInfoSystem">
-        <activity android:name=".TeaActivity">
-
-        </activity>
+        <activity android:name=".PutInScoreActivity"></activity>
+        <activity android:name=".TeaActivity"></activity>
         <activity
             android:name=".AdminActivity"
             android:label="管理界面"
             android:windowSoftInputMode="adjustPan" />
-
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

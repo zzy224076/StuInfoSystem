@@ -1,8 +1,10 @@
 package com.example.stuinfosystem.Dao
 
+import android.accessibilityservice.AccessibilityService
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
+import androidx.room.Update
 import com.example.stuinfosystem.entity.Score
 
 
@@ -17,4 +19,7 @@ interface ScoreDao {
 
     @Query("select * from Score where stu_id=:stuId and course_name=:courseName")
     fun queryOneByStuIdAndCourseName(stuId: Int,courseName: String): Score
+
+    @Query("update score set s_score=:score where stu_id=:stuId and course_name =:courseName ")
+    fun updateScoreByStuIdAndCourseName(score:Int,stuId:Int,courseName: String)
 }
