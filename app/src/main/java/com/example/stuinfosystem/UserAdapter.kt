@@ -40,7 +40,12 @@ class UserAdapter(private val userList:MutableList<User>):
         val user = userList[position]
         holder.idTextView.text = user.userID.toString()
         holder.nameTextView.text = user.name
-        holder.typeTextView.text = user.type.toString()
+        if(user.type==1){
+            holder.typeTextView.text="学生"
+        }else{
+            holder.typeTextView.text="教师"
+        }
+
         holder.deleteBtn.setOnClickListener{
             userDao.deleteOne(user)
             if(user.type==1){
